@@ -1,0 +1,29 @@
+import React, { useContext } from 'react'
+import products from "../Products";
+import "../Styles/carousel.css";
+import Mycontext from '../Contextprovider/Mycontext';
+
+function Jewel() {
+  var {addtocart}=useContext(Mycontext)
+  return (
+    <>
+      <div className="row p-3 ">
+       {products.filter(v=>v.product=="jewels").map((v, i) => (
+          <div className="col-lg-3" key={i}>
+            <div className="card border-0 bg-transparent">
+              <img src={v.img}  className="men" />
+              <div className="card-body">
+                <span className="badge position-absolute love" ><img width="30" height="30" src="https://img.icons8.com/ios-filled/50/FA5252/like--v1.png" alt="like--v1"/></span>
+                 <span onClick={()=>addtocart(v.id)} className="badge  position-absolute love1" ><img width="30" height="30" src="https://img.icons8.com/ios-filled/50/737373/shopping-cart.png" alt="shopping-cart"/></span>
+                <span>name :{v.Name}</span><br/>
+                <span>price:{v.price}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  )
+}
+
+export default Jewel

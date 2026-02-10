@@ -1,0 +1,72 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color:rgb(7, 43, 40); */
+  background-image: url(https://img.freepik.com/free-vector/hand-drawn-abstract-doodle-background_23-2149319086.jpg?t=st=1769662723~exp=1769666323~hmac=d7e7436a422d3868e53b9b09a0e0efbf183c2801d6d9157f5eb20992488dba83);
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  margin-top: 20px;
+}
+
+.login-box {
+  width: 400px;
+  text-align: center;
+}
+
+.login-box h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.login-box p {
+  font-size: 14px;
+  color: #0b2f3a;
+  margin-bottom: 20px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #975ef3;
+  outline: none;
+}
+
+.password-box {
+  position: relative;
+}
+
+.forgot {
+  position: absolute;
+  right: 0;
+  top: 14px;
+  font-size: 12px;
+  color: #3a3df0;
+  cursor: pointer;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 14px;
+  background-color: rgb(10, 42, 44);
+  color: #4871e4;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  opacity: 0.9;
+}
+
+.signup {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.signup span {
+  font-weight: bold;
+  cursor: pointer;
+}
