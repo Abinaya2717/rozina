@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "../Styles/carousel.css";
+import "../Styles/style.css";
 
 import img1 from "../images/commomImg/banner1.jpg";
 import img2 from "../images/commomImg/banner3.jpg"
@@ -18,6 +18,7 @@ import image5 from "../images/toysimages/to1.jfif"
 
 import { useNavigate } from "react-router-dom";
 import products from "../Products";
+// import Carousel3 from "./carousel/Carousel3";
 
 function Carousel() {
   const navigate = useNavigate();
@@ -106,7 +107,7 @@ function Carousel() {
       </center>
 
       {/* Cards */}
-      <div className="p-5 card-bg">
+      {/* <div className="p-5 card-bg">
         <div className="row ">
           <div className="col-lg-4">
             <div className="card border-0 bg-transparent">
@@ -133,7 +134,50 @@ function Carousel() {
             </div>
           </div>
         </div>
+      </div> */}
+      <div className="p-5 card-bg " >
+  <div className="row g-4 justify-content-center">
+    <div className="col-lg-4 col-md-6">
+      <div className="card border-0 bg-transparent h-100">
+        <img 
+          src={wo} 
+          alt="Women's Collection" 
+          onClick={() => navigate("/Women")}
+          className="img-fluid rounded-4 shadow-hover"
+        />
+        <center>
+          <h5 className="m-3 textcat fw-bold">Women's</h5>
+        </center>
       </div>
+    </div>
+    <div className="col-lg-4 col-md-6">
+      <div className="card border-0 bg-transparent h-100">
+        <img 
+          src={me} 
+          alt="Men's Collection" 
+          onClick={() => navigate("/Men")}
+          className="img-fluid rounded-4 shadow-hover"
+        />
+        <center>
+          <h5 className="m-3 textcat fw-bold">Men's</h5>
+        </center>
+      </div>
+    </div>
+    <div className="col-lg-4 col-md-6">
+      <div className="card border-0 bg-transparent h-100">
+        <img 
+          src={kid} 
+          alt="Kid's Collection" 
+          onClick={() => navigate("/Kid")}
+          className="img-fluid rounded-4 shadow-hover"
+        />
+        <center>
+          <h5 className="m-3 textcat fw-bold">Kid's</h5>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
       <center>
         <h5 className="textcat mb-2 p-4">
           Trendy And Fashionable Outfits For The Festivals!
@@ -145,14 +189,14 @@ function Carousel() {
 
       {/* card&carousel */}
 
-      <div className="row d-flex justify-content-between">
+      <div className="row d-flex justify-content-between ">
         <div className="col-lg-2 my-4  d-flex justify-content-center ">
-          <div className="card border-0 bg-transparent">
+          <div className="card border-0 ">
             <img
               src={image1}
               width="200px"
               height="200px"
-              className="border-0 rounded-circle "onClick={() => navigate("/Jewel")}
+              className="border-0 rounded-circle bg-danger"onClick={() => navigate("/Jewel")}
             />
             <span className="text-center " onClick={() => navigate("/Jewel")}>
               Jewls Collections
@@ -186,7 +230,7 @@ function Carousel() {
           </div>
         </div>
         <div className="col-lg-2 my-4 d-flex justify-content-center ">
-          <div className="card border-0 bg-transparent ">
+          <div className="card border-0  ">
             <img
               src={image4}
               width="200px"
@@ -212,8 +256,10 @@ function Carousel() {
           </div>
         </div>
       </div>
+      
       <br />
-      {/* new arrivals */}
+
+    {/* new arrivals */}
       <h1 className="container text-dark p-2">Womens Collections</h1>
       <div className=" row p-2 ">
             {products.filter(v => v.Category === "New arrival").map((v, i) => (

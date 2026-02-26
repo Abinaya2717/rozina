@@ -1,44 +1,78 @@
 import React, { useContext } from "react";
 import products from "../Products";
 import "../Styles/carousel.css";
-// import Mycontext from '../Contextprovider/Mycontext';
+import Mycontext from '../Contextprovider/Mycontext';
 
 function Kid() {
-  // var {addtocart}=useContext(Mycontext)
+  
+   var {addtocart}=useContext(Mycontext)
+    var {Wishlist}=useContext(Mycontext)
   return (
     <>
-      <div className="row p-3 ">
-        {products
-          .filter((v) => v.product == "kids")
-          .map((v, i) => (
-            <div className="col-lg-3" key={i}>
-              <div className="card border-0 bg-transparent">
-                <img src={v.img} className="men" />
-                <div className="card-body">
-                  <span className="badge  position-absolute love">
-                    <img
-                      width="24"
-                      height="24"
-                      src="https://img.icons8.com/ios-filled/50/FA5252/like--v1.png"
-                      alt="like--v1"
-                    />
-                  </span>
-                  <span className="badge position-absolute love1">
-                    <img
-                      width="24"
-                      height="24"
-                      src="https://img.icons8.com/ios-filled/50/737373/shopping-cart.png"
-                      alt="shopping-cart"
-                    />
-                  </span>
-                  <span>name :{v.Name}</span>
-                  <br />
-                  <span>price:{v.price}</span>
+    <div className="row p-3 g-4">
+      {products
+        .filter((v) => v.product == "kids")
+        .map((v, i) => (
+          <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={i}>
+            <div className="card  bg-light shadow-sm  h-100">
+              <div className="">
+                <img
+                  src={v.img}
+                  style={{ height: "250px", borderRadius: "0px" ,width:"100%"}}
+                  alt={v.Name}
+                />
+
+                {/* Wishlist Button */}
+                <span className="badge bg-white  position-absolute newlove p-1 rounded-circle shadow-sm">
+                  <i
+                    className="fa-regular fa-heart text-danger"
+                    onClick={() => Wishlist(v.id)}
+                  ></i>
+                </span>
+
+                {/* Cart Button */}
+                <span
+                  className="badge bg-white position-absolute love1 my-3 p-1 rounded-circle shadow-sm"
+                  onClick={() => addtocart(v.id)}
+                >
+                  <i class="fa-solid fa-bag-shopping text-success "></i>
+                </span>
+
+              </div>
+
+              <div
+                className="card-body  p-3"
+                style={{ backgroundColor: "#e5e7fa" }}
+              >
+                <h6 className="card-title fw-semibold text-dark mb-2">
+                  {v.Name}
+                </h6>
+
+                <div className="d-flex justify-content-between align-items-center mt-3">
+                  <div>
+                    <span className="text-muted small d-block mb-1">
+                      Price:
+                    </span>
+                    <span className="h5 fw-bold text-primary">${v.price}</span>
+                  </div>
+                </div>
+
+                {/* Optional: Quick Actions */}
+                <div className="d-grid gap-2 mt-3">
+                  <button
+                    className="btn btn-outline-primary btn-sm"
+                    onClick={() => {
+                      /* View details function */
+                    }}
+                  >
+                    View Details
+                  </button>
                 </div>
               </div>
             </div>
-          ))}
-      </div>
+          </div>
+        ))}
+    </div>
     </>
   );
 }

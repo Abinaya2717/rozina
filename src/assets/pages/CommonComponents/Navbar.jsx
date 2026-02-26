@@ -1,12 +1,21 @@
 import React, { useContext } from "react";
-import "../../Styles/Carousel.css";
+import "../../Styles/Nav.css";
 // import logo from "../images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import Mycontext from "../../Contextprovider/Mycontext";
 
 function Navbar() {
   const navigate = useNavigate();
-  var { searchFun, input, searchOutput, cartState ,removeCart} = useContext(Mycontext);
+
+  var {
+    searchFun,
+    input,
+    searchOutput,
+    cartState,
+    removeCart,
+    wishstate,
+    removewish,
+  } = useContext(Mycontext);
   return (
     <div>
       <nav className="position-sticky top-0 z-3">
@@ -37,8 +46,8 @@ function Navbar() {
           </div>
         </div>
 
-        {/* nav offcanvas */}
-        <div className="navbar1 d-flex justify-content-between">
+       
+         <div className="navbar1 d-flex justify-content-between" >
           <div
             class="offcanvas offcanvas-start"
             tabindex="-1"
@@ -96,7 +105,7 @@ function Navbar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                   id="shop-button"
-                  onClick={() => navigate("/shop")}
+                 
                 >
                   SHOP
                 </button>
@@ -186,10 +195,6 @@ function Navbar() {
               style={{ height: "600px", overflow: "scroll" }}
             >
               <div class="offcanvas-header">
-                <button
-                  className=" btn btn-close"
-                  data-bs-dismiss="offcanvas"
-                ></button>
                 <br />
                 <form className="input-group" onSubmit={searchFun}>
                   <input
@@ -198,6 +203,10 @@ function Navbar() {
                     onChange={input}
                   />
                   <button className="btn btn-primary">submit</button>
+                  <button
+                    className=" btn btn-close"
+                    data-bs-dismiss="offcanvas"
+                  ></button>
                 </form>
               </div>
               <div className="container">
@@ -227,12 +236,6 @@ function Navbar() {
               <img
                 width="24"
                 height="24"
-                src="https://img.icons8.com/ios-glyphs/30/FFFFFF/search--v1.png"
-                alt="search--v1"
-              />
-              <img
-                width="24"
-                height="24"
                 src="https://img.icons8.com/ios-glyphs/30/FFFFFF/user--v1.png"
                 alt="user--v1"
                 onClick={() => navigate("/Login")}
@@ -247,67 +250,262 @@ function Navbar() {
                 data-bs-dismiss
               />
               {/* offcanvass cart */}
+              
               <div
                 class="offcanvas offcanvas-top"
                 tabindex="-1"
                 id="offcanvas2"
                 aria-labelledby="offcanvasLabel"
+                style={{ height: "600px", overflow: "scroll" }}
               >
-                <div class="offcanvas-header">
-                  <button className="btn btn-close" data-bs-dismiss="offcanvas"></button>
-                  {/* <h5 class="offcanvas-title" id="offcanvasLabel"> */}
-                  <table className="table">
-                    <thead>
-                      <tr>
-                        <th>Products</th>
-                        <th>Name</th>
-                        <th>price</th>
-                        <th>Quantity</th>
-                        <th>Category</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {cartState.length == 0 ? (
-                        "no products"
-                      ) : (
-                        cartState.map((v,i)=>(
-                          <tr key={i}>
-                          <td><img src={v.img} width="100px" height="100px" alt="" /></td>
-                          <td>{v.Name}</td>
-                          <td>{v.price}</td>
-                          <td>{v.Quantity}</td>
-                          <td>{v.Category}</td>
-                          <td><button className="btn btn-close" onClick={()=>removeCart(v.id)}></button></td>
-                        </tr>
-                        ))
-                      )}
-                    </tbody>
-                  </table>
-                  {/* </h5> */}
+                <div class="offcanvas-header bg-light border-bottom">
+                  <h5 class="offcanvas-title fw-bold" id="offcanvasLabel">
+                    Cartlist
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                  ></button>
+                </div>
+
+                <div class="offcanvas-body p-0">
+                  {cartState.length == 0 ? (
+                    <div class="d-flex flex-column align-items-center justify-content-center py-5">
+                      <div class="text-muted mb-3">
+                        <i class="bi bi-heart fs-1"></i>
+                      </div>
+                      <h5 class="text-muted mb-2">Your Cartlist is empty</h5>
+                      <p class="text-muted small">
+                        Add some products to your Cartlist
+                      </p>
+                    </div>
+                  ) : (
+                    <div class="table-responsive">
+                      <table className="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                          <tr>
+                            <th scope="col" class="ps-4">
+                              Product
+                            </th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Category</th>
+                            <th scope="col" class="text-end pe-4">
+                              Action
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {cartState.map((v, i) => (
+                            <tr key={i} class="border-bottom">
+                              <td class="ps-4">
+                                <div class="d-flex align-items-center">
+                                  <img
+                                    src={v.img}
+                                    width="60"
+                                    height="60"
+                                    class="rounded border object-fit-cover"
+                                    alt={v.Name}
+                                  />
+                                </div>
+                              </td>
+                              <td>
+                                <div class="fw-medium">{v.Name}</div>
+                              </td>
+                              <td>
+                                <span class="fw-semibold text-primary">
+                                  {v.price}
+                                </span>
+                              </td>
+                              <td>
+                                <span class="badge bg-secondary rounded-pill">
+                                  {v.Quantity}
+                                </span>
+                              </td>
+                              <td>
+                                <span class="badge bg-light text-dark border">
+                                  {v.Category}
+                                </span>
+                              </td>
+                              <td class="text-end pe-4">
+                                <button
+                                  className="btn btn-close btn-sm btn-outline-danger rounded-circle"
+                                  onClick={() => removeCart(v.id)}
+                                  title="Remove from Cartlist"
+                                ></button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+
+                      {/* Optional: Add a footer with actions */}
+                      <div class="border-top p-3 bg-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="fw-medium">
+                            Total Items:{" "}
+                            <span class="badge bg-primary">
+                              {wishstate.length}
+                            </span>
+                          </div>
+                          <div>
+                            <button
+                              className="btn btn-outline-secondary btn-sm me-2"
+                              onClick={() => {
+                                /* Add clear all function here */
+                              }}
+                            >
+                              Clear All
+                            </button>
+                            <button className="btn btn-primary btn-sm">
+                              View All Products
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
+
               {/* wishlist */}
-              <img
+                <img
                 width="24"
                 height="24"
                 src="https://img.icons8.com/ios-glyphs/30/FFFFFF/like--v1.png"
                 alt="like--v1"
                 data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvas3"
+                data-bs-target="#offcanvas1"
                 data-bs-dismiss
               />
+              
               <div
                 class="offcanvas offcanvas-top"
                 tabindex="-1"
-                id="offcanvas3"
+                id="offcanvas1"
                 aria-labelledby="offcanvasLabel"
+                style={{ height: "600px", overflow: "scroll" }}
               >
-                <div class="offcanvas-header"></div>
+                <div class="offcanvas-header bg-light border-bottom">
+                  <h5 class="offcanvas-title fw-bold" id="offcanvasLabel">
+                    Wishlist
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                  ></button>
+                </div>
+
+                <div class="offcanvas-body p-0">
+                  {wishstate.length == 0 ? (
+                    <div class="d-flex flex-column align-items-center justify-content-center py-5">
+                      <div class="text-muted mb-3">
+                        <i class="bi bi-heart fs-1"></i>
+                      </div>
+                      <h5 class="text-muted mb-2">Your wishlist is empty</h5>
+                      <p class="text-muted small">
+                        Add some products to your wishlist
+                      </p>
+                    </div>
+                  ) : (
+                    <div class="table-responsive">
+                      <table className="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                          <tr>
+                            <th scope="col" class="ps-4">
+                              Product
+                            </th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Category</th>
+                            <th scope="col" class="text-end pe-4">
+                              Action
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {wishstate.map((v, i) => (
+                            <tr key={i} class="border-bottom">
+                              <td class="ps-4">
+                                <div class="d-flex align-items-center">
+                                  <img
+                                    src={v.img}
+                                    width="60"
+                                    height="60"
+                                    class="rounded border object-fit-cover"
+                                    alt={v.Name}
+                                  />
+                                </div>
+                              </td>
+                              <td>
+                                <div class="fw-medium">{v.Name}</div>
+                              </td>
+                              <td>
+                                <span class="fw-semibold text-primary">
+                                  ${v.price}
+                                </span>
+                              </td>
+                              <td>
+                                <span class="badge bg-secondary rounded-pill">
+                                  {v.Quantity}
+                                </span>
+                              </td>
+                              <td>
+                                <span class="badge bg-light text-dark border">
+                                  {v.Category}
+                                </span>
+                              </td>
+                              <td class="text-end pe-4">
+                                <button
+                                  className="btn btn-close btn-sm btn-outline-danger rounded-circle"
+                                  onClick={() => removewish(v.id)}
+                                  title="Remove from wishlist"
+                                ></button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+
+                      {/* Optional: Add a footer with actions */}
+                      <div class="border-top p-3 bg-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="fw-medium">
+                            Total Items:{" "}
+                            <span class="badge bg-primary">
+                              {wishstate.length}
+                            </span>
+                          </div>
+                          <div>
+                            <button
+                              className="btn btn-outline-secondary btn-sm me-2"
+                              onClick={() => {
+                                /* Add clear all function here */
+                              }}
+                            >
+                              Clear All
+                            </button>
+                            <button className="btn btn-primary btn-sm">
+                              View All Products
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
         </div>
+        
+
       </nav>
     </div>
   );

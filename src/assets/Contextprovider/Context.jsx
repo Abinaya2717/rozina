@@ -4,10 +4,14 @@ import products from "../Products";
 
 function Context({ children }) {
   var [cartState, setCartState] = useState([]);
+  var [wishstate,setwishstate]=useState([])
   console.log("cartState", cartState);
+  console.log("wishstate", wishstate);
 
   function addtocart(proId) {
     const exists = cartState.some((item) => item.id === proId);
+
+    
 
     if (exists) {
       alert("Already in cart");
@@ -17,10 +21,25 @@ function Context({ children }) {
       alert("Product added to cart");
     }
   }
+   function Wishlist(proId) {
+     const product = products.find((v) => v.id === proId);
+    const exists = wishstate.some((item) => item.id === proId);
+
+    if (exists) {
+      alert("Already in wishlist");
+    } else {
+      setwishstate([...wishstate, product]);
+      alert("Product added to wishlist");
+    }
+  }
 
   // cart remove function start
   function removeCart(proId) {
     setCartState(cartState.filter((v) => v.id !== proId));
+  }
+  // wish remove function
+  function removewish(proId) {
+    setwishstate(wishstate.filter((v) => v.id !== proId));
   }
   // cart remove function end
 
@@ -50,6 +69,10 @@ function Context({ children }) {
     searchOutput,
     cartState,
     removeCart,
+    Wishlist,
+    wishstate,
+    removewish
+    
   };
   return (
     <Mycontext.Provider value={abi_developer}>{children}</Mycontext.Provider>

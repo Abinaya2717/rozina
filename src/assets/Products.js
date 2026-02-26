@@ -81,7 +81,7 @@ const products=[
         Name:"Shot Kurtis",
         Brand:"Penserplsa",
         img:women1,
-        Price:"2000",
+        price:"2000",
         Category:"New arrival",
         product:"women"
     },
@@ -90,7 +90,7 @@ const products=[
         Name:"Shot Kurtis",
         Brand:"Nykaplsa",
         img:women2,
-        Price:"1500",
+        price:"1500",
         Category:"New arrival",
         product:"women"
     },
@@ -99,7 +99,7 @@ const products=[
         Name:"Shot Kurtis",
         Brand:"Penserplsa",
         img:women3,
-        Price:"1000",
+        price:"1000",
         Category:"colorvarient",
         product:"women"
     },
@@ -108,7 +108,7 @@ const products=[
         Name:"Shot Kurtis",
         Brand:"Purpls",
         img:women4,
-        Price:"2500",
+        price:"2500",
         Category:"colorvarient",
         product:"women"
     },
@@ -117,7 +117,7 @@ const products=[
         Name:"Shot Kurtis",
         Brand:"Penserplsa",
         img:women5,
-        Price:"2800",
+        price:"2800",
         Category:"New arrival",
         product:"women"
     },
@@ -126,7 +126,7 @@ const products=[
         Name:"Shot Kurtis",
         Brand:"Penserplsa",
         img:women6,
-        Price:"3000",
+        price:"3000",
         Category:"New arrival",
         product:"women"
     },
@@ -135,7 +135,7 @@ const products=[
         Name:"Shot Kurtis",
         Brand:"Pattaloons",
         img:women7,
-        Price:"2000",
+        price:"2000",
         Category:"New arrival",
         product:"women"
     },
@@ -144,7 +144,7 @@ const products=[
         Name:"Shot Kurtis",
         Brand:"Penserplsa",
         img:women8,
-        Price:"3500",
+        price:"3500",
         Category:"New arrival",
         product:"women"
     },
