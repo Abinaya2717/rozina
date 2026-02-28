@@ -3,8 +3,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../Styles/style.css";
 
+// swiper.js
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+// import "../../../index.css"
+
 import img1 from "../images/commomImg/banner1.jpg";
-import img2 from "../images/commomImg/banner3.jpg"
+import img2 from "../images/commomImg/banner3.jpg";
 
 import wo from "../images/WomenProImg/wo.png";
 import me from "../images/menImg/me.png";
@@ -14,20 +21,29 @@ import image1 from "../images/JewelImg/jewel.png";
 import image2 from "../images/SkincareImg/cos.png";
 import image3 from "../images/WatchesImage/watch.png";
 import image4 from "../images/BagsImage/bags.png";
-import image5 from "../images/toysimages/to1.jfif"
+import image5 from "../images/toysimages/to1.jfif";
 
 import { useNavigate } from "react-router-dom";
 import products from "../Products";
+
 // import Carousel3 from "./carousel/Carousel3";
 
 function Carousel() {
   const navigate = useNavigate();
+
+  var swiperImage = [
+    { img: image1, Name: "jewels", navigation: "/Jewel" },
+    { img: image2, Name: "Skincare", navigation: "Skincare" },
+    { img: image3, Name: "watches" ,navigation: "Watch"},
+    { img: image4, Name: "bags",navigation: "Bag" },
+    { img: image5, Name: "toys",navigation: "Toys" },
+  ];
   return (
     <>
       {/* carousel */}
       <div
         id="carouselExampleIndicators"
-        className="carousel slide p-5 caro"
+        className="carousel slide p-5 "
         data-bs-ride="carousel "
       >
         <div className="carousel-indicators">
@@ -52,14 +68,14 @@ function Carousel() {
             aria-label="Slide 3"
           ></button>
         </div>
-        <div className="carousel-inner bg-dark ">
+        <div className="carousel-inner">
           <div className="carousel-item active ">
             <img src={img1} width="100%" height="500px" />
           </div>
 
           <div className="carousel-item">
-         <img src={img2} width="100%" height="500px" />
-         </div>
+            <img src={img2} width="100%" height="500px" />
+          </div>
         </div>
         <button
           className="carousel-control-prev"
@@ -106,161 +122,94 @@ function Carousel() {
         </button>
       </center>
 
-      {/* Cards */}
-      {/* <div className="p-5 card-bg">
-        <div className="row ">
-          <div className="col-lg-4">
-            <div className="card border-0 bg-transparent">
-              <img src={wo} alt="" onClick={() => navigate("/Women")} />
+      <div className="p-5 card-bg ">
+        <div className="row g-4 justify-content-center">
+          <div className="col-lg-4 col-md-6">
+            <div className="card border-0 bg-transparent h-100">
+              <img
+                src={wo}
+                alt="Women's Collection"
+                onClick={() => navigate("/Women")}
+                className="img-fluid rounded-4 shadow-hover"
+              />
               <center>
-                <h5 className="m-3 textcat">Women's</h5>
+                <h5 className="m-3 textcat fw-bold">Women's</h5>
               </center>
             </div>
           </div>
-          <div className="col-lg-4">
-            <div className="card border-0 bg-transparent">
-              <img src={me} alt="" onClick={() => navigate("/Men")} />
+          <div className="col-lg-4 col-md-6">
+            <div className="card border-0 bg-transparent h-100">
+              <img
+                src={me}
+                alt="Men's Collection"
+                onClick={() => navigate("/Men")}
+                className="img-fluid rounded-4 shadow-hover"
+              />
               <center>
-                <h5 className="m-3 textcat">Men's</h5>
+                <h5 className="m-3 textcat fw-bold">Men's</h5>
               </center>
             </div>
           </div>
-          <div className="col-lg-4">
-            <div className="card border-0 bg-transparent">
-              <img src={kid} alt="" onClick={() => navigate("/Kid")} />
+          <div className="col-lg-4 col-md-6">
+            <div className="card border-0 bg-transparent h-100">
+              <img
+                src={kid}
+                alt="Kid's Collection"
+                onClick={() => navigate("/Kid")}
+                className="img-fluid rounded-4 shadow-hover"
+              />
               <center>
-                <h5 className="m-3 textcat">Kid's</h5>
+                <h5 className="m-3 textcat fw-bold">Kid's</h5>
               </center>
             </div>
           </div>
         </div>
-      </div> */}
-      <div className="p-5 card-bg " >
-  <div className="row g-4 justify-content-center">
-    <div className="col-lg-4 col-md-6">
-      <div className="card border-0 bg-transparent h-100">
-        <img 
-          src={wo} 
-          alt="Women's Collection" 
-          onClick={() => navigate("/Women")}
-          className="img-fluid rounded-4 shadow-hover"
-        />
-        <center>
-          <h5 className="m-3 textcat fw-bold">Women's</h5>
-        </center>
       </div>
-    </div>
-    <div className="col-lg-4 col-md-6">
-      <div className="card border-0 bg-transparent h-100">
-        <img 
-          src={me} 
-          alt="Men's Collection" 
-          onClick={() => navigate("/Men")}
-          className="img-fluid rounded-4 shadow-hover"
-        />
-        <center>
-          <h5 className="m-3 textcat fw-bold">Men's</h5>
-        </center>
-      </div>
-    </div>
-    <div className="col-lg-4 col-md-6">
-      <div className="card border-0 bg-transparent h-100">
-        <img 
-          src={kid} 
-          alt="Kid's Collection" 
-          onClick={() => navigate("/Kid")}
-          className="img-fluid rounded-4 shadow-hover"
-        />
-        <center>
-          <h5 className="m-3 textcat fw-bold">Kid's</h5>
-        </center>
-      </div>
-    </div>
-  </div>
-</div>
       <center>
-        <h5 className="textcat mb-2 p-4">
-          Trendy And Fashionable Outfits For The Festivals!
-        </h5>
+        <h5 className="textcat mb-2 p-4 4">Shop By Categories</h5>
       </center>
-      <center>
-       
-      </center>
+      <center></center>
 
-      {/* card&carousel */}
-
-      <div className="row d-flex justify-content-between ">
-        <div className="col-lg-2 my-4  d-flex justify-content-center ">
-          <div className="card border-0 ">
-            <img
-              src={image1}
-              width="200px"
-              height="200px"
-              className="border-0 rounded-circle bg-danger"onClick={() => navigate("/Jewel")}
-            />
-            <span className="text-center " onClick={() => navigate("/Jewel")}>
-              Jewls Collections
-            </span>
-          </div>
-        </div>
-        <div className="col-lg-2 my-4 d-flex justify-content-center ">
-          <div className="card border-0 bg-transparent">
-            <img
-              src={image2}
-              width="200px"
-              height="200px"
-              className="border-0 rounded-circle" onClick={() => navigate("/Skincare")}
-            />
-            <span className="text-center" onClick={() => navigate("/Skincare")}>
-              Skin Collections
-            </span>
-          </div>
-        </div>
-        <div className="col-lg-2 my-4 d-flex justify-content-center ">
-          <div className="card border-0 bg-transparent ">
-            <img
-              src={image3}
-              width="200px"
-              height="200px"
-              className="border-0 rounded-circle"onClick={() => navigate("/Watch")}
-            />
-            <span className="text-center" onClick={() => navigate("/Watch")}>
-              Watch Collections
-            </span>
-          </div>
-        </div>
-        <div className="col-lg-2 my-4 d-flex justify-content-center ">
-          <div className="card border-0  ">
-            <img
-              src={image4}
-              width="200px"
-              height="200px"
-              className="border-0 rounded-circle" onClick={() => navigate("/Bag")}
-            />
-            <span className="text text-center" onClick={() => navigate("/Bag")}>
-              Bag Collections
-            </span>
-          </div>
-        </div>
-        <div className="col-lg-2 my-4 d-flex justify-content-center ">
-          <div className="card border-0 bg-transparent ">
-            <img
-              src={image5}
-              width="200px"
-              height="200px"
-              className="border-0 rounded-circle" onClick={() => navigate("/Toys")}
-            />
-            <span className="text text-center" onClick={() => navigate("/Toys")}>
-              Toys Collections
-            </span>
-          </div>
-        </div>
+      <div className="container">
+        <Swiper
+          spaceBetween={10}
+          slidesPerView={3}
+          modules={[Navigation, Autoplay]}
+          navigation
+          autoplay={{ delay: 3000 }}
+          breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 } }}
+          loop
+        >
+          {/* .filter((value)=>value.catagery==="shop"). */}
+          {swiperImage.map((value) => (
+            <SwiperSlide>
+              <center>
+                {" "}
+                <img
+                  id="mapping-img"
+                  src={value.img}
+                  alt=""
+                  className="rounded-4"
+                  height="300"
+                  width="300"
+                  onClick={()=>navigate(value.navigation)}
+                />
+              </center>
+              <center>
+                {" "}
+                <h5>
+                  <span style={{ color: "#06314e" }}>{value.Name}</span>
+                </h5>
+              </center>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-      
+
       <br />
 
-    {/* new arrivals */}
-      <h1 className="container text-dark p-2">Womens Collections</h1>
+      {/* new arrivals */}
+      {/* <h1 className="container text-dark p-2">Womens Collections</h1>
       <div className=" row p-2 ">
             {products.filter(v => v.Category === "New arrival").map((v, i) => (
         <div className="col-lg-2" key={i}>
@@ -268,26 +217,43 @@ function Carousel() {
             <img src={v.img} className="card-img-top" alt={v.Name} height={"200px"} />
             <div className="card-body">
               <span>name : {v.Name}</span><br />
-              <span>price : ₹{v.Price}</span>
-            </div>
-          </div>
-        </div>
-      ))}
-      </div>
-      {/* Recent arrivals */}
-      <h1 className="container text-dark p-3">Recent arrivals</h1>
-      <div className=" row ">
-            {products.filter(v => v.Category === "Recent arrival").map((v, i) => (
-        <div className="col-lg-2" key={i}>
-          <div className="card border-0 bg-transparent">
-            <img src={v.img} className="card-img-top rounded-circle" alt={v.Name} height={"200px"} />
-            <div className="card-body">
-              <span>name : {v.Name}</span><br />
               <span>price : ₹{v.price}</span>
             </div>
           </div>
         </div>
       ))}
+      </div> */}
+      {/* Recent arrivals */}
+      <h1 className="container text-dark p-3">Recent arrivals</h1>
+      <div className=" row ">
+        {products
+          .filter((v) => v.Category === "Recent arrival")
+          .map((v, i) => (
+            <div className="col-lg-2 col-sm-4 col-12" key={i}>
+              <div className="card border-0 bg-transparent p-3" onClick={() => navigate(`/Product/${v.id}`)} >
+                <center><img
+                  src={v.img}
+                  className="card-img-top rounded-circle "
+                  alt={v.Name}
+                style={{height:"300px"}}
+                 
+                /></center>
+                <div className="card-body">
+                  <center>
+                    <span className="recent-name">
+                      Name : <span style={{ color: "red" }}>{v.Name}</span>
+                    </span>
+                  </center>
+                  <center>
+                    {" "}
+                    <span className="recent-price">
+                      Price : <span style={{ color: "red" }}>₹{v.price}</span>
+                    </span>
+                  </center>
+                </div>
+              </div>
+            </div>
+          ))}
       </div>
     </>
   );

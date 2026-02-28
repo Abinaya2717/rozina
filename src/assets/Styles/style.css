@@ -658,17 +658,17 @@ center {
     object-fit: cover;
     border: 4px solid transparent;
     background: linear-gradient(135deg, #3498db, #2ecc71) border-box;
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+    /* -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); */
+    /* -webkit-mask-composite: xor; */
+    /* mask-composite: exclude; */
     transition: all 0.5s ease;
     box-shadow: 0 10px 30px rgba(52, 152, 219, 0.2);
-    padding: 5px;
+    padding: 1px;
 }
 
 .card:hover img.rounded-circle {
-    transform: scale(1.1) rotate(5deg);
+    /* transform: scale(1.1) rotate(5deg); */
     border: 4px solid transparent;
     background: linear-gradient(135deg, #e74c3c, #f39c12) border-box;
     box-shadow: 0 20px 40px rgba(231, 76, 60, 0.3);
@@ -761,6 +761,15 @@ center {
     transform: translateY(-50%) scale(1.1);
     box-shadow: 0 10px 30px rgba(52, 152, 219, 0.4);
 }
+.recent-name{
+    font-family: 'Times New Roman', Times, serif;
+    color: #06314e;
+}
+.recent-price{
+    font-family: 'Times New Roman', Times, serif;
+    color: #06314e;
+
+}
 
 /* Responsive Design */
 @media (max-width: 1400px) {
@@ -825,15 +834,15 @@ center {
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 576px){ 
     .row.d-flex.justify-content-between .col-lg-2 {
         width: 130px !important;
         max-width: 130px !important;
-    }
+    }}
     
     .card img.rounded-circle {
-        width: 110px !important;
-        height: 110px !important;
+        width: 200px !important;
+        height: 200px !important;
         border-width: 3px;
     }
     
@@ -847,6 +856,21 @@ center {
     .carousel-nav-next {
         display: none;
     }
+    /* .swiper-button-next{
+    color:red !important;
+    height: 30px !important;
+    width: 30px !important;
+    background-color: #2980b9 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+} */
+.swiper-button-prev{
+    /* color:red !important;
+    height: 30px !important;
+    width: 30px !important;
+} */
 }
 
 /* Animations */
@@ -892,10 +916,7 @@ center {
 }
 
 /* Gradient Border Animation */
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
+
 
 .card:hover img.rounded-circle {
     animation: rotate 1s ease-out;

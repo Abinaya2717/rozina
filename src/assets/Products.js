@@ -71,6 +71,7 @@ import t5 from "../assets/images/toysimages/t5.jfif"
 import t6 from "../assets/images/toysimages/t6.jpg"
 import t7 from "../assets/images/toysimages/t7.jfif"
 import t8 from "../assets/images/toysimages/t8.jfif"
+import t9 from "../assets/images/toysimages/doll-image.png"
 
 
 
@@ -78,74 +79,83 @@ const products=[
 
     {
         id:1,
-        Name:"Shot Kurtis",
+        Name:"Pink Kurti",
         Brand:"Penserplsa",
         img:women1,
         price:"2000",
         Category:"New arrival",
-        product:"women"
+        product:"women",
+        varitey:"Shot Kurtis",
+        Desc:"Very Nice Kurthi from Thiruvarur"
     },
     {
         id:2,
-        Name:"Shot Kurtis",
+        Name:"Red kurti",
         Brand:"Nykaplsa",
         img:women2,
         price:"1500",
         Category:"New arrival",
+        varitey:"Shot Kurtis",
         product:"women"
     },
     {
         id:3,
-        Name:"Shot Kurtis",
+        Name:"Brown kurti",
         Brand:"Penserplsa",
         img:women3,
         price:"1000",
         Category:"colorvarient",
+        varitey:"Shot Kurtis",
         product:"women"
     },
     {
         id:4,
-        Name:"Shot Kurtis",
+        Name:"Black kurti",
         Brand:"Purpls",
         img:women4,
         price:"2500",
         Category:"colorvarient",
+        varitey:"Shot Kurtis",
         product:"women"
     },
     {
         id:5,
-        Name:"Shot Kurtis",
+        Name:"violet Kurtis",
         Brand:"Penserplsa",
         img:women5,
         price:"2800",
         Category:"New arrival",
+        varitey:"Shot Kurtis",
         product:"women"
     },
     {
         id:6,
-        Name:"Shot Kurtis",
+        Name:"grey Kurtis",
         Brand:"Penserplsa",
         img:women6,
         price:"3000",
         Category:"New arrival",
+        varitey:"Shot Kurtis",
         product:"women"
     },
     {
         id:7,
-        Name:"Shot Kurtis",
+        Name:"Printed Kurtis",
         Brand:"Pattaloons",
         img:women7,
         price:"2000",
         Category:"New arrival",
+        varitey:"Shot Kurtis",
         product:"women"
     },
     {
         id:8,
-        Name:"Shot Kurtis",
+        Name:"Blue Kurtis",
         Brand:"Penserplsa",
         img:women8,
         price:"3500",
         Category:"New arrival",
+        varitey:"Shot Kurtis",
         product:"women"
     },
     
@@ -158,6 +168,7 @@ const products=[
         img:men1,
         price:"2500",
         product:"men",
+        varitey:"Mens",
         Category:"Shop"
     },
      {
@@ -661,6 +672,15 @@ const products=[
         Name:"Toys",
         Brand:"Firstcry",
         img:t8,
+        price:"800",
+        product:"Toys",
+        Category:"Shop"
+    },
+    {
+        id:65,
+        Name:"Toys",
+        Brand:"Firstcry",
+        img:t9,
         price:"800",
         product:"Toys",
         Category:"Shop"

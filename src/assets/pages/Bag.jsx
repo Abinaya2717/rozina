@@ -2,10 +2,13 @@ import React, { useContext } from "react";
 import products from "../Products";
 import "../Styles/carousel.css";
 import Mycontext from "../Contextprovider/Mycontext";
+import { useNavigate } from "react-router-dom";
 
 function Bag() {
   var {addtocart}=useContext(Mycontext)
    var {Wishlist}=useContext(Mycontext)
+
+    const navigate = useNavigate();
   return (
     <>
        <div className="row p-3 g-4">
@@ -18,7 +21,7 @@ function Bag() {
                 <img
                   src={v.img}
                   style={{ height: "250px", borderRadius: "0px" ,width:"100%"}}
-                  alt={v.Name}
+                  alt={v.Name}  onClick={() => navigate(`/Product/${v.id}`)}
                 />
 
                 {/* Wishlist Button */}
