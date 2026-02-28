@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import products from "../Products";
-import "../Styles/carousel.css";
+import "../Styles/Carousel.css";
 import Mycontext from '../Contextprovider/Mycontext';
 import { useNavigate } from 'react-router-dom';
 
